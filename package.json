@@ -1,0 +1,36 @@
+{
+  "name": "node-es6",
+  "version": "1.0.0",
+  "description": "starter for node.js in es6",
+  "main": "index.js",
+  "dependencies": {},
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.14.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "nodemon": "^2.0.16",
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "clean": "rimraf -rf .build/*",
+    "clean:installDependencies": "rimraf -rf ./node_modules",
+    "build:dev": "babel src --source-maps --copy-files --out-dir .build",
+    "start:dev": "npm run clean && npm run build:dev",
+    "lint": "./node_modules/.bin/eslint src/**",
+    "lint:test": "./node_modules/.bin/eslint test/**",
+    "lint:fix": "./node_modules/.bin/eslint src/** --fix",
+    "lint:test:fix": "./node_modules/.bin/eslint test/** --fix",
+    "start": "npm run start:dev && node ./.build/server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
